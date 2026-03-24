@@ -1,10 +1,12 @@
-# 🛒 E-commerce Automation Framework (In Progress)
+# Selenium E-Commerce Automation Framework
 
-🚀 Automation testing framework for an e-commerce web application using Selenium WebDriver.
+## 📌 Project Overview
+This project is a Selenium-based automation framework built using Java, TestNG, and Page Object Model (POM).  
+It automates key functionalities of an e-commerce website (AutomationExercise).
 
 ---
 
-## 🔧 Tech Stack
+## 🛠 Tech Stack
 - Java
 - Selenium WebDriver
 - TestNG
@@ -12,60 +14,55 @@
 
 ---
 
-## 📌 Features Implemented
-- Login automation
-- Page Object Model (POM) structure
-- TestNG test execution
+## 📂 Project Structure
+- base → WebDriver setup
+- pages → Page Object classes
+- tests → Test cases
+- utils → Config & Wait utilities
 
 ---
 
-## 🚀 Features In Progress
-- Product search automation
-- Add to cart functionality
-- Improved test coverage
+## ✅ Features Implemented
+- User Signup
+- Login & Logout
+- Add Product to Cart
+- Cart Validation
+- Dynamic Test Data (unique emails)
+- Ad Handling (DOM removal using JS)
+- Explicit Waits for stability
 
 ---
 
-## 🌐 Application Under Test
-🔗 https://automationexercise.com
+## 🧪 Test Scenarios
+1. Complete Flow Test  
+   Signup → Login → Add to Cart → Verify → Logout  
+
+2. Add to Cart Test  
+   Add product and verify cart is not empty  
+
+3. Invalid Login Test  
+   Verify error message for wrong credentials  
 
 ---
 
-## 📁 Project Structure
-src/
-├── base/ # Driver setup
-├── pages/ # Page Object classes
-├── tests/ # Test cases
-
----
-
-## 📸 Screenshots
-Screenshots of test execution are available in the `screenshots` folder.
-
----
-
-## ▶️ How to Run Tests
-
+## ▶️ How to Run
 1. Clone the repository:
+   git clone https://github.com/sonaliviniramesh-web/selenium-ecommerce-automation-framework
 
-git clone https://github.com/yourusername/selenium-ecommerce-automation-framework.git
+2. Open in IntelliJ IDEA  
 
-
-2. Navigate to project:
-
-cd selenium-ecommerce-automation-framework
-
-
-3. Run tests using Maven:
-
-mvn test
+3. Run test class:
+   tests.AutomationExerciseTest
 
 ---
 
-## 🚧 Status
-This project is currently under development. Core workflows are being automated and framework structure is being enhanced.
+## 🚀 Future Enhancements
+- Extent Reports
+- Parallel Execution
+- CI/CD (GitHub Actions)
+- Docker Integration
 
 ---
 
-## 👩‍💻 Author
-**Sonali Ramesh**
+## 👤 Author
+Sonali Ramesh

@@ -1,13 +1,13 @@
-# 🛒 Selenium E-Commerce Automation Framework
+🛒 Selenium E-Commerce Automation Framework
 
-## 📌 Project Overview
+📌 Project Overview
 This project is a **Selenium-based test automation framework** built using **Java, TestNG, and Page Object Model (POM)**.
 
 It automates key user flows of an e-commerce application (AutomationExercise), focusing on **end-to-end functional validation** and **test stability**.
 
 ---
 
-## 🛠 Tech Stack
+🛠 Tech Stack
 - Java
 - Selenium WebDriver
 - TestNG
@@ -15,7 +15,7 @@ It automates key user flows of an e-commerce application (AutomationExercise), f
 
 ---
 
-## 🏗 Framework Design
+🏗 Framework Design
 - Page Object Model (POM) for scalability
 - Utility-based architecture for reusability
 - Explicit waits for synchronization
@@ -23,7 +23,7 @@ It automates key user flows of an e-commerce application (AutomationExercise), f
 
 ---
 
-## 📂 Project Structure
+📂 Project Structure
 base/ → WebDriver setup & test base
 pages/ → Page classes (Login, Signup, Product)
 tests/ → Test classes
@@ -32,7 +32,7 @@ resources/ → Configuration files
 
 ---
 
-## ✅ Features Implemented
+✅ Features Implemented
 - User Signup (dynamic email handling)
 - Login & Logout functionality
 - Add Product to Cart
@@ -43,20 +43,20 @@ resources/ → Configuration files
 
 ---
 
-## 🧪 Test Scenarios
+🧪 Test Scenarios
 
-### 🔹 End-to-End Flow
+🔹 End-to-End Flow
 - Signup → Login → Add to Cart → Verify → Logout
 
-### 🔹 Cart Validation
+🔹 Cart Validation
 - Add product and verify it appears in cart
 
-### 🔹 Negative Testing
+🔹 Negative Testing
 - Login with invalid credentials
 
 ---
 
-## ▶️ How to Run
+▶️ How to Run
 
 1. Clone the repository:
    ```bash
@@ -67,7 +67,7 @@ resources/ → Configuration files
 
 ---
 
-## 🚀 Future Enhancements
+🚀 Future Enhancements
 Extent Reports (test reporting)
 Parallel execution
 CI/CD integration (GitHub Actions)

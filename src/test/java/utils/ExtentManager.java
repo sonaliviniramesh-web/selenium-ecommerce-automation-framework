@@ -7,15 +7,20 @@ public class ExtentManager {
 
     private static ExtentReports extent;
 
-    public static synchronized ExtentReports getInstance() {
+    public static ExtentReports getInstance() {
+
         if (extent == null) {
-            ExtentSparkReporter spark =
+
+            ExtentSparkReporter reporter =
                     new ExtentSparkReporter("test-output/ExtentReport.html");
-            spark.config().setReportName("Automation Test Report");
-            spark.config().setDocumentTitle("Selenium Framework Report");
+
+            reporter.config().setReportName("Automation Report");
+            reporter.config().setDocumentTitle("Test Results");
+
             extent = new ExtentReports();
-            extent.attachReporter(spark);
+            extent.attachReporter(reporter);
         }
+
         return extent;
     }
 }

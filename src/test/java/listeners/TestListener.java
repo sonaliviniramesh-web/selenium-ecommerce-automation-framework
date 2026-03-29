@@ -1,8 +1,7 @@
 package listeners;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import base.BaseTest;
+import com.aventstack.extentreports.*;
+import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import utils.ExtentManager;
@@ -15,7 +14,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        ExtentTest extentTest = extent.createTest(result.getName());
+        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());
         test.set(extentTest);
     }
 
@@ -26,14 +25,21 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        String testName = result.getName();
-        ScreenshotUtils.captureScreenshot(BaseTest.getDriver(), testName);
         test.get().fail(result.getThrowable());
-        test.get().addScreenCaptureFromPath("screenshots/" + testName + ".png");
+
+        String screenshotPath = ScreenshotUtils.captureScreenshot(
+                result.getMethod().getMethodName()
+        );
+
+        try {
+            test.get().addScreenCaptureFromPath(screenshotPath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void onFinish(org.testng.ITestContext context) {
+    public void onFinish(ITestContext context) {
         extent.flush();
     }
 }

@@ -1,30 +1,32 @@
 package utils;
 
+import base.BaseTest;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.io.FileHandler;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ScreenshotUtils {
 
-    public static void captureScreenshot(WebDriver driver, String testName) {
-        if (driver == null) {
-            System.err.println("Screenshot skipped — driver is null for: " + testName);
-            return;
-        }
+    public static String captureScreenshot(String testName) {
+
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String path = "screenshots/" + testName + "_" + timestamp + ".png";
+
         try {
-            File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            Path destination = Paths.get("screenshots", testName + ".png");
-            Files.createDirectories(destination.getParent());
-            Files.copy(source.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            System.err.println("Screenshot failed for: " + testName + " — " + e.getMessage());
+            File src = ((TakesScreenshot) BaseTest.getDriver())
+                    .getScreenshotAs(OutputType.FILE);
+
+            File dest = new File(path);
+            FileHandler.copy(src, dest);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+        return path;
     }
 }

@@ -6,8 +6,11 @@ import pages.ProductPageAE;
 import pages.SignupPageAE;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.Listeners;
+import listeners.TestListener;
 import java.util.UUID;
+
+@Listeners(TestListener.class)
 
 public class AutomationExerciseTest extends BaseTest {
 

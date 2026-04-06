@@ -10,8 +10,17 @@ import java.util.Map;
 public class DriverFactory {
 
     public static WebDriver getDriver() {
+
         ChromeOptions options = new ChromeOptions();
 
+        // ✅ Headless (CI friendly)
+        options.addArguments("--headless=new");
+
+        // ✅ Stability
+        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--disable-gpu");
+
+        // Existing options
         options.addArguments("--disable-extensions");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-notifications");
@@ -20,6 +29,7 @@ public class DriverFactory {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
 
+        // Preferences
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("profile.default_content_setting_values.ads", 2);
         prefs.put("profile.default_content_setting_values.popups", 2);
@@ -27,10 +37,11 @@ public class DriverFactory {
         prefs.put("autofill.profile_enabled", false);
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
+
         options.setExperimentalOption("prefs", prefs);
 
         WebDriver driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+
         return driver;
     }
 }

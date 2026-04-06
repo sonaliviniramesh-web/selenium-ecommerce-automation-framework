@@ -68,20 +68,14 @@ public class ProductPageAE extends BasePage {
     }
 
     public boolean isProductDisplayed(String productName) {
-
         try {
-            // 🔥 NEW LOGIC: check if ANY product exists in cart
-            java.util.List<org.openqa.selenium.WebElement> items =
-                    driver.findElements(
-                            org.openqa.selenium.By.xpath("//tr[@id[contains(.,'product')]]")
-                    );
-
-            System.out.println("Items in cart: " + items.size());
-
-            return items.size() > 0;
-
+            return driver.findElement(
+                    By.xpath("//td[@class='cart_description']//a[contains(text(),'" + productName + "')]")
+            ).isDisplayed();
         } catch (Exception e) {
             return false;
         }
     }
+
+
 }
